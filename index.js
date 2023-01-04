@@ -78,7 +78,6 @@ app.get("/callback", (req, res) => {
 
 app.get("/refresh_token", (req, res) => {
   const { refresh_token } = req.query;
-
   axios({
     method: "post",
     url: "https://accounts.spotify.com/api/token",
@@ -96,6 +95,7 @@ app.get("/refresh_token", (req, res) => {
     .then((response) => {
       const params = querystring.stringify({
         access_token: response.data.access_token,
+        created_at: Date.now(),
       });
       res.redirect(`http://localhost:5173/main-page?${params}`);
     })
