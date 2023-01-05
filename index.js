@@ -24,7 +24,7 @@ app.get("/login", (req, res) => {
   try {
     var state = makeid(16);
     var scope =
-      "streaming user-read-email user-read-private user-library-read user-library-modify user-read-playback-state user-modify-playback-state";
+      "playlist-read-private streaming user-read-email user-read-private user-library-read user-library-modify user-read-playback-state user-modify-playback-state";
 
     res.redirect(
       "https://accounts.spotify.com/authorize?" +
